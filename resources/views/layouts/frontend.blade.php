@@ -13,7 +13,7 @@
 <body class="@yield('css_class')">
 <nav class="navbar navbar-expand navbar-dark">
   <div class="container">
-    <a class="navbar-brand" href="{{ url('/') }}">{{config('app.name')}}</a>
+    <a class="navbar-brand" href="{{ url('/') }}"><img src="/logo.jpeg" width="50" height="50" />{{config('app.name')}}</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto"></ul>
@@ -81,7 +81,7 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-</script>	
+</script>
 @yield('js')
 </body>
 </html>

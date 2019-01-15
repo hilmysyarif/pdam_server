@@ -48,7 +48,7 @@
                                 <tr>
                                     <td>{{ $history->bulan }}</td>
                                     <td>{{ $history->tahun }}</td>
-                                    <td>{!! Auth::user()->id_pelanggan !!}</td>
+                                    <td>{!! $history->user->id_pelanggan !!}</td>
                                     <td>{{ $history->jumlah_pemakaian }}</td>
                                     <td>@if($history->foto_meteran) <img src="/uploads/meteran/{{ $history->foto_meteran}}" width="200" height="200" /> @else <img src="https://placehold.it/200" /> @endif </td>
                                     <td><a data-toggle="modal" data-target="#update-modal-{{ $history->id }}" class="btn btn-outline-success updateData" data-id="'+index+'">Lihat</a>

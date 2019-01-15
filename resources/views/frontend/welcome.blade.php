@@ -5,7 +5,7 @@
 @section('content')
 <div class="container home pt-5">
   <div class="row justify-content-md-center">
-    <h6 class="col-lg-12 text-center">PDAM Kertawinangun dibangun untuk memudahkan pelanggan untuk melihat pemakaian air.</h6>
+    <h6 class="col-lg-12 text-center">BUMDES Kertawinangun dibangun untuk memudahkan pelanggan untuk melihat pemakaian air.</h6>
   </div>
 
   <div class="row mt-5 justify-content-md-center">

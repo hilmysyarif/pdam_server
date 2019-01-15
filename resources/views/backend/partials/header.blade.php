@@ -4,8 +4,8 @@
   </button>
 
   <div class="navbar-brand">
-    <div class="navbar-brand-full">PDAM Apps</div>
-    <div class="navbar-brand-minimized">PDAM</div>
+    <div class="navbar-brand-full"><img src="/logo.jpeg" width="50" height="50" /></div>
+    <div class="navbar-brand-minimized"><img src="/logo.jpeg" width="50" height="50" /></div>
   </div>
 
   <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">

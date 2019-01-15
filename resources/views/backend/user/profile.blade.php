@@ -129,18 +129,6 @@
       </div><!--card-->
     </form>
   </div>
-
-  <div class="col-xl-6">
-    <div class="card">
-      <div id="qr-code" class="card-body">
-        <img src="data:{{$qrCodeData}};base64,{{$qrCodeBase64}}" alt="QR Code">
-        <input type="button" value="Print"  onclick="printImg()" />
-        <br />
-        <small>Silahkan download dan print QR Code ini untuk login melalui aplikasi</small>
-      </div>
-    </div>
-  </div>
-
 </div>
 @endsection
 
