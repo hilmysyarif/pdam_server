@@ -46,7 +46,7 @@
     <div class="card text-white bg-primary py-5 d-none d-md-block" style="width:44%;">
       <div class="card-body text-center">
         <div>
-          <h2>@lang("Belum mendaftar di PDAM Kertawinangun?")</h2>
+          <h2>@lang("Belum mendaftar di BUMDES Kertawinangun?")</h2>
           <a class="btn btn-primary active mt-3" href="{{ route('register') }}">@lang('Daftar Sekarang!')</a>
         </div>
       </div>
