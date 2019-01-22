@@ -16,12 +16,12 @@
       <div class="card">
           <div class="card-header">
             <a class="card-link" data-toggle="collapse" href="#collapseOne">
-              {{$berita->judul}}
+              {{$berita['judul']}}
             </a>
           </div>
           <div id="collapseOne" class="collapse show" data-parent="#accordion">
             <div class="card-body">
-              {!! $berita->content !!}
+              {!! $berita['content'] !!}
             </div>
           </div>
         </div>
@@ -33,25 +33,4 @@
     </div>
   </div>
 </div>
-@endsection
-
-@section('js')
-<script>
-var lastIndex = 0;
-
-// Get Data
-firebase.database().ref('news/posts/').on('value', function(snapshot) {
-    var value = snapshot.val();
-    var htmls = [];
-    $.each(value, function(index, value){
-    	if(value) {
-            htmls.push('
-            ');
-    	}
-    	lastIndex = index;
-    });
-    $('#accordion').html(htmls);
-
-});
-</script>
 @endsection

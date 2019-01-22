@@ -44,66 +44,79 @@
                             </tr>
                             </thead>
                             <tbody id="tbody">
-                              @foreach($histories as $history)
-                                <tr>
-                                    <td>{{ $history->bulan }}</td>
-                                    <td>{{ $history->tahun }}</td>
-                                    <td>{!! $history->user->id_pelanggan !!}</td>
-                                    <td>{{ $history->jumlah_pemakaian }}</td>
-                                    <td>@if($history->foto_meteran) <img src="/uploads/meteran/{{ $history->foto_meteran}}" width="200" height="200" /> @else <img src="https://placehold.it/200" /> @endif </td>
-                                    <td><a data-toggle="modal" data-target="#update-modal-{{ $history->id }}" class="btn btn-outline-success updateData" data-id="'+index+'">Lihat</a>
-                                </tr>
+                              @php $id = 1; @endphp
+                              @foreach($histories as $key => $history)
+                                @if($history != null)
+                                @foreach($history as $key2 => $histori)
+                                @if(!is_null($histori))
+                                  @foreach($histori as $histori)
+                                  @if(!is_null($histori))
+                                  @php $id += 1; @endphp
 
-                                <div id="update-modal-{{ $history->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true" style="display: none;">
-                                    <div class="modal-dialog" style="width:100%;">
-                                        <div class="modal-content" style="overflow: hidden;">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="custom-width-modalLabel">Lihat History</h4>
-                                                <button type="button" class="close update-data-from-delete-form" data-dismiss="modal" aria-hidden="true">×</button>
-                                            </div>
-                                            <div class="modal-body" id="updateBody">
-                                              <div class="form-group">
-                                                      <label for="Judul" class="col-md-12 col-form-label">Tahun</label>
-                                                      <div class="col-md-12">
-                                                          <input id="judul" type="text" class="form-control" name="judul" value="{{ $history->tahun }}" disabled required autofocus>
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label for="category" class="col-md-12 col-form-label">Bulan</label>
-                                                      <div class="col-md-12">
-                                                          <input id="category" type="text" class="form-control" name="category" value="{{ $history->bulan }}" disabled required autofocus>
-                                                      </div>
-                                                    </div>
-                                                  <div class="form-group">
-                                                      <label for="Content" class="col-md-12 col-form-label">Jumlah Pemakaian</label>
-                                                      <div class="col-md-12">
-                                                          <input id="category" type="text" class="form-control" name="category" value="{{ $history->jumlah_pemakaian }}" disabled required autofocus>
-                                                      </div>
-                                                      </div>
-                                                  <div class="form-group">
-                                                      <label for="Content" class="col-md-12 col-form-label">Foto Meteran</label>
-                                                      <div class="col-md-12">
-                                                        @if($history->foto_meteran)
-                                                          <img src="/uploads/meteran/{{ $history->foto_meteran}}" width="200" height="200" />
-                                                        @else
-                                                          <img src="https://placehold.it/200" width="200" height="200" />
-                                                        @endif
-                                                      </div>
-                                                      </div>
+                                   <tr>
+                                        <td>{{ $histori['bulan'] }}</td>
+                                        <td>{{ $histori['tahun'] }}</td>
+                                        <td>{!! $histori['id_pelanggan'] !!}</td>
+                                        <td>{{ $histori['jumlah_meteran'] }}</td>
+                                        <td>@if($histori['foto_meteran']) <img src="{{ $histori['foto_meteran']}}" width="200" height="200" /> @else <img src="https://placehold.it/200" /> @endif </td>
+                                        <td><a data-toggle="modal" data-target="#update-modal-{{ $id }}" class="btn btn-outline-success updateData" data-id="'+index+'">Lihat</a>
+                                    </tr>
 
-                                                      <div class="form-group">
-                                                          <label for="Content" class="col-md-12 col-form-label">Jumlah Bayar</label>
+                                    <div id="update-modal-{{ $id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true" style="display: none;">
+                                        <div class="modal-dialog" style="width:100%;">
+                                            <div class="modal-content" style="overflow: hidden;">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="custom-width-modalLabel">Lihat History</h4>
+                                                    <button type="button" class="close update-data-from-delete-form" data-dismiss="modal" aria-hidden="true">×</button>
+                                                </div>
+                                                <div class="modal-body" id="updateBody">
+                                                  <div class="form-group">
+                                                          <label for="Judul" class="col-md-12 col-form-label">Tahun</label>
                                                           <div class="col-md-12">
-                                                              <input id="jumlah_bayar" type="text" class="form-control" name="category" value="Rp. {{ $history->total_bayar }}" disabled required autofocus>
+                                                              <input id="judul" type="text" class="form-control" name="judul" value="{{ $histori['tahun'] }}" disabled required autofocus>
+                                                          </div>
+                                                      </div>
+                                                      <div class="form-group">
+                                                          <label for="category" class="col-md-12 col-form-label">Bulan</label>
+                                                          <div class="col-md-12">
+                                                              <input id="category" type="text" class="form-control" name="category" value="{{ $histori['bulan'] }}" disabled required autofocus>
+                                                          </div>
+                                                        </div>
+                                                      <div class="form-group">
+                                                          <label for="Content" class="col-md-12 col-form-label">Jumlah Pemakaian</label>
+                                                          <div class="col-md-12">
+                                                              <input id="category" type="text" class="form-control" name="category" value="{{ $histori['jumlah_meteran'] }}" disabled required autofocus>
                                                           </div>
                                                           </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default waves-effect update-data-from-delete-form" data-dismiss="modal">Close</button>
+                                                      <div class="form-group">
+                                                          <label for="Content" class="col-md-12 col-form-label">Foto Meteran</label>
+                                                          <div class="col-md-12">
+                                                            @if($histori['foto_meteran'])
+                                                              <img src="{{ $histori['foto_meteran']}}" width="200" height="200" />
+                                                            @else
+                                                              <img src="https://placehold.it/200" width="200" height="200" />
+                                                            @endif
+                                                          </div>
+                                                          </div>
+
+                                                          <div class="form-group">
+                                                              <label for="Content" class="col-md-12 col-form-label">Jumlah Bayar</label>
+                                                              <div class="col-md-12">
+                                                                  @if(isset($histori['total_bayar']))<input id="jumlah_bayar" type="text" class="form-control" name="category" value="Rp. {{ $histori['total_bayar'] }}" disabled required autofocus> @endif
+                                                              </div>
+                                                              </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default waves-effect update-data-from-delete-form" data-dismiss="modal">Close</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    @endif
+                                    @endforeach
+                                  @endif
+                                @endforeach
+                                @endif
                               @endforeach
                             </tbody>
 

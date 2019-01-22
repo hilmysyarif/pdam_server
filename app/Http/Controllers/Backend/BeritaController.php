@@ -8,6 +8,10 @@ use App\Berita;
 use App\Category;
 use Yajra\Datatables\Datatables;
 use Illuminate\Http\Request;
+use Kreait\Firebase;
+use Kreait\Firebase\Factory;
+use Kreait\Firebase\ServiceAccount;
+use Kreait\Firebase\Database;
 
 class BeritaController extends Controller
 {
@@ -21,35 +25,50 @@ class BeritaController extends Controller
 
     public function index()
     {
-        $beritas = Berita::all();
-        $categories = Category::all();
+        $serviceAccount = ServiceAccount::fromJsonFile(public_path('/json/pdam-kertawinangun.json'));
+        $firebase = (new Factory)
+        ->withServiceAccount($serviceAccount)
 
+        ->withDatabaseUri('https://pdam-kertawinangun.firebaseio.com/')
+        ->create();
+        $database = $firebase->getDatabase();
+
+        $beritas = $database->getReference('news/posts')->getSnapshot();
+        $categories = Category::all();
         return view('backend.berita.index', [
-          'beritas' => $beritas,
+          'beritas' => $beritas->getValue(),
           'categories' => $categories
         ]);
     }
 
     public function store(Request $request){
 
-      $berita = new Berita;
-      $berita->judul = $request->judul;
-      $berita->content = $request->content;
-      $berita->category_id = $request->category_id;
+      $serviceAccount = ServiceAccount::fromJsonFile(public_path('/json/pdam-kertawinangun.json'));
+      $firebase = (new Factory)
+      ->withServiceAccount($serviceAccount)
 
-      if($berita->save()){
-        $res = array('status' => 200, 'message' => "Sukses menambahkan berita");
+      ->withDatabaseUri('https://pdam-kertawinangun.firebaseio.com/')
+      ->create();
+      $database = $firebase->getDatabase();
 
-      }else{
-        $res = array('status' => 500, 'message' => "Gagal menambahkan berita");
-
-      }
-      return $res;
+      $berita = $database->getReference('news/posts')->push([
+        'judul' => $request->judul,
+        'content' => $request->content,
+        'category' => $request->category
+      ]);
     }
 
     public function destroy(Request $request){
-      $berita = Berita::find($request->id);
-      $berita->delete();
+      $serviceAccount = ServiceAccount::fromJsonFile(public_path('/json/pdam-kertawinangun.json'));
+      $firebase = (new Factory)
+      ->withServiceAccount($serviceAccount)
+
+      ->withDatabaseUri('https://pdam-kertawinangun.firebaseio.com/')
+      ->create();
+      $database = $firebase->getDatabase();
+      $query = $database->getReference('news/posts/')->getChild($request->id);
+      $reb = $query->getSnapshot()->getValue();
+      $query->remove();
 
       return array('status' => 200, 'message' => "Sukses menghapus berita");
     }

@@ -13,10 +13,13 @@
 
 Route::post('login', 'API\UserController@login');
 Route::post('register', 'API\UserController@register');
+Route::get('berita', 'API\HomeController@index');
+Route::get('token', 'API\HomeController@getToken');
 Route::group(['middleware' => 'auth:api'], function(){
   Route::post('details', 'API\UserController@details');
   Route::post('myhistories', 'API\HistoriesController@index');
   Route::post('current', 'API\HistoriesController@current');
   Route::post('total_used', 'API\HistoriesController@last_total_used');
   Route::post('add_new', 'API\HistoriesController@add_new');
+  Route::post('update', 'API\UserController@update');
 });

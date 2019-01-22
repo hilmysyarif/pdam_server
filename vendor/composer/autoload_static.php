@@ -586,6 +586,10 @@ class ComposerStaticInit7f2b14cf07ce36a0fb5268ca08a339b7
         ),
         'M' => 
         array (
+            'Mpociot\\Firebase' => 
+            array (
+                0 => __DIR__ . '/..' . '/mpociot/laravel-firebase-sync/src',
+            ),
             'Mockery' => 
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
@@ -609,12 +613,14 @@ class ComposerStaticInit7f2b14cf07ce36a0fb5268ca08a339b7
         'App\\Helpers\\NumHlp' => __DIR__ . '/../..' . '/app/Helpers/NumHlp.php',
         'App\\Helpers\\UrlHlp' => __DIR__ . '/../..' . '/app/Helpers/UrlHlp.php',
         'App\\History' => __DIR__ . '/../..' . '/app/History.php',
+        'App\\Http\\Controllers\\API\\HistoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/HistoriesController.php',
+        'App\\Http\\Controllers\\API\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/HomeController.php',
+        'App\\Http\\Controllers\\API\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/UserController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
-        'App\\Http\\Controllers\\Backend\\AllUrlController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/AllUrlController.php',
         'App\\Http\\Controllers\\Backend\\BeritaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/BeritaController.php',
         'App\\Http\\Controllers\\Backend\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/DashboardController.php',
         'App\\Http\\Controllers\\Backend\\HistoryPemakaianController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/HistoryPemakaianController.php',
@@ -1293,6 +1299,10 @@ class ComposerStaticInit7f2b14cf07ce36a0fb5268ca08a339b7
         'Firebase\\Auth\\Token\\Handler' => __DIR__ . '/..' . '/kreait/firebase-tokens/src/Handler.php',
         'Firebase\\Auth\\Token\\HttpKeyStore' => __DIR__ . '/..' . '/kreait/firebase-tokens/src/HttpKeyStore.php',
         'Firebase\\Auth\\Token\\Verifier' => __DIR__ . '/..' . '/kreait/firebase-tokens/src/Verifier.php',
+        'Firebase\\Error' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseError.php',
+        'Firebase\\FirebaseInterface' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseInterface.php',
+        'Firebase\\FirebaseLib' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseLib.php',
+        'Firebase\\FirebaseStub' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseStub.php',
         'Firebase\\JWT\\BeforeValidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/BeforeValidException.php',
         'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
         'Firebase\\JWT\\JWT' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWT.php',
@@ -3074,6 +3084,7 @@ class ComposerStaticInit7f2b14cf07ce36a0fb5268ca08a339b7
         'Monolog\\ResettableInterface' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ResettableInterface.php',
         'Monolog\\SignalHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/SignalHandler.php',
         'Monolog\\Utils' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Utils.php',
+        'Mpociot\\Firebase\\SyncsWithFirebase' => __DIR__ . '/..' . '/mpociot/laravel-firebase-sync/src/Mpociot/Firebase/SyncsWithFirebase.php',
         'Nexmo\\Account\\Balance' => __DIR__ . '/..' . '/nexmo/client/src/Account/Balance.php',
         'Nexmo\\Account\\Client' => __DIR__ . '/..' . '/nexmo/client/src/Account/Client.php',
         'Nexmo\\Account\\Price' => __DIR__ . '/..' . '/nexmo/client/src/Account/Price.php',

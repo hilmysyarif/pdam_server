@@ -9,6 +9,7 @@ return array(
     'Rize\\UriTemplate' => array($vendorDir . '/rize/uri-template/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
+    'Mpociot\\Firebase' => array($vendorDir . '/mpociot/laravel-firebase-sync/src'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
 );
